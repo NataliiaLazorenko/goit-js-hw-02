@@ -50,17 +50,19 @@ function isLoginUnique(allLogins, login) {
 }
 
 function addLogin(allLogins, login) {
-  'use strict';
+  ('use strict');
   const SUCCESS = 'Логін успішно доданий!';
   const REFUSAL = 'Такий логін уже використовується!';
   const ERROR = 'Помилка! Логін повинен бути від 4 до 16 символів';
   let message;
 
-  if (isLoginUnique(allLogins, login) === false) {
+  // if (isLoginUnique(allLogins, login) === false)
+  if (!isLoginUnique(allLogins, login)) {
     return (message = REFUSAL);
   }
 
-  if (isLoginValid(login) === false) {
+  // if (isLoginValid(login) === false)
+  if (!isLoginValid(login)) {
     return (message = ERROR);
   }
 
